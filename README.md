@@ -1,16 +1,41 @@
-# Google-Play-Crawler
+# Google Play Crawler
 
-Esta aplicação coleta uma série de informações sobre aplicativos na loja Google Play.
+This is a web crawler for collect the following infos:
+* App name;
+* Developer;
+* Category;
+* Rating count;
+* Classification (number of stars);
+* Last time updated;
+* Size of app (in MB);
+* Number of installations;
+* App version;
+* Minimun android version required;
 
-## Coletando as Informações
-Certifique-se que o seu navegador é suportado pelo [selenium](https://www.selenium.dev/documentation/en/getting_started_with_webdriver/browsers/). Caso sua versão seja compatível, ainda será necessário fazer o download do geckodriver, disponível em:
-  - [Firefox](https://github.com/mozilla/geckodriver/releases)
-  - [Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
-
-O local de instalação do driver é "./geckodriver/".
-
-Para executar o crawler basta estar no diretório e especificar a url do aplicativo:
+## Usage:
 ```
-python crawler.py https://play.google.com/store/apps/details?id=com.github.android
+main.py [-h] (-u URL | -c CATEGORY) (-v | -o [FILENAME])
 ```
-As informações serão inicialmente disponibilizadas em dois arquivos .json, um para o aplicativo e outro para seus comentários.
+
+## Optional arguments:
+```
+  -h, --help            show this help message and exit
+  -u URL, --url URL     URL from a specific application
+  -c CATEGORY, --category CATEGORY
+                        apps from the first page of the selected category
+  -v, --verbose         print the results on screen
+  -o [FILENAME], --outfile [FILENAME]
+                        stores the collected information in the specified file
+
+```
+
+## Dependencies:
+```
+beautifulsoup4==4.9.3
+certifi==2021.5.30
+chardet==4.0.0
+idna==2.10
+requests==2.25.1
+soupsieve==2.2.1
+urllib3==1.26.5
+```
